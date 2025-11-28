@@ -1,0 +1,125 @@
+# ======================
+# PYTHON GENERAL
+# ======================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+venv.bak/
+*/venv/
+*/env/
+
+# ======================
+# BUILD / DIST
+# ======================
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.nox/
+.pytest_cache/
+.cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# ======================
+# IDE / EDITOR FILES
+# ======================
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# ======================
+# OS FILES
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# ENVIRONMENT VARIABLES / SECRETS
+# ======================
+.env
+.env.*
+*.local
+
+# ======================
+# DATABASES
+# ======================
+*.sqlite3
+*.db
+
+# ======================
+# LOGS
+# ======================
+*.log
+logs/
+
+# ======================
+# JUPYTER
+# ======================
+.ipynb_checkpoints
+
+# ======================
+# MyPy
+# ======================
+.mypy_cache/
+
+# ======================
+# C Extensions / Binary Blobs
+# ======================
+*.so
+*.dll
+*.lib
+*.pyd
+
+# ======================
+# LARGE DIRECTORIES NOT ALLOWED IN GITHUB
+# ======================
+**/site-packages/
+**/__pycache__/
+**/torch/
+**/cv2/
+**/_polars_runtime_32/
+**/_polars_runtime_64/
+
+# ======================
+# MODEL FILES (> 100MB)
+# ======================
+# DO NOT PUSH YOLO MODELS TO GITHUB
+*.pt
+*.pth
+*.onnx
+
+# ======================
+# ARCHIVES (Very Large)
+# ======================
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# ======================
+# UPLOADED FILES
+# ======================
+app/static/uploads/
+
+# ======================
+# CUSTOM PROJECT FILES
+# ======================
+backend_info.txt
+updated_backend_zip.zip
+major_env/

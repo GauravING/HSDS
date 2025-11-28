@@ -1,0 +1,39 @@
+# -----------------------------
+# Core Flask Framework
+# -----------------------------
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-Migrate==4.0.5
+Flask-Cors==4.0.0
+Flask-JWT-Extended==4.6.0
+
+# -----------------------------
+# Database and ORM
+# -----------------------------
+SQLAlchemy==2.0.23
+alembic==1.13.1
+mysql-connector-python==8.3.0    # ✅ Required for MySQL connections via mysql+mysqlconnector
+
+# -----------------------------
+# Security and Environment
+# -----------------------------
+bcrypt==4.1.2
+PyJWT==2.8.0
+python-dotenv==1.0.1
+
+# -----------------------------
+# Computer Vision / Deep Learning
+# -----------------------------
+opencv-python==4.9.0.80
+numpy==1.26.4
+torch==2.2.2
+torchvision==0.17.2
+ultralytics==8.0.210   # YOLOv8 engine
+
+# -----------------------------
+# Utilities and HTTP
+# -----------------------------
+requests==2.31.0
+Pillow==10.2.0
+uuid==1.30
+gunicorn==21.2.0

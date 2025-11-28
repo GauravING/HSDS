@@ -1,0 +1,137 @@
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Center content */
+.content {
+  max-width: 600px;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Floating helmet icon */
+.icon-container {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1rem auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+.helmet-icon {
+  width: 100%;
+  height: 100%;
+  background: transparent !important;
+}
+
+/* Glow gradient title */
+.project-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #00ffcc, #00aaff, #ff00aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowPulse 2s infinite alternate;
+}
+
+/* Rotating quotes */
+.quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn {
+  background-color: #00ffcc;
+  color: black;
+  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+.signup-btn {
+  background-color: #ff0066;
+  color: white;
+  box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Glow animation */
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px #00ffcc; }
+  to { text-shadow: 0 0 25px #00ffcc, 0 0 40px #00aaff; }
+}
+
+/* Fade-up animation */
+.fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.fade-up-delayed {
+  animation: fadeUp 1s ease-out 0.5s forwards;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .project-title {
+    font-size: 1.8rem;
+  }
+  .quote {
+    font-size: 1rem;
+  }
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  .icon-container {
+    width: 100px;
+    height: 100px;
+  }
+}

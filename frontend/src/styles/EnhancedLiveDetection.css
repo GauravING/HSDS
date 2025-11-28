@@ -1,0 +1,204 @@
+/* EnhancedLiveDetection.css */
+.live-detection-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  background: var(--background-light);
+  transition: background-color 0.3s ease;
+}
+
+.live-detection-page.dark-mode {
+  background: var(--background-dark);
+}
+
+.detection-container {
+  max-width: 900px;
+  width: 100%;
+  background: var(--surface-light);
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.live-detection-page.dark-mode .detection-container {
+  background: var(--surface-dark);
+  color: var(--text-dark);
+}
+
+.detection-container h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.detection-container p {
+  font-size: 1rem;
+  color: var(--text-secondary-light);
+  margin-bottom: 1.5rem;
+}
+
+.live-detection-page.dark-mode .detection-container p {
+  color: var(--text-secondary-dark);
+}
+
+.start-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem;
+  border: 2px dashed var(--border-light);
+  border-radius: 10px;
+}
+
+.live-detection-page.dark-mode .start-prompt {
+  border-color: var(--border-dark);
+}
+
+.start-camera-btn {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.start-camera-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-area {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: black;
+}
+
+.video-stream,
+.detection-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.detection-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.control-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-button.start {
+  background: var(--primary-color);
+  color: white;
+}
+
+.control-button.start:hover {
+  background: var(--primary-dark);
+}
+
+.control-button.stop {
+  background: var(--error-color);
+  color: white;
+}
+
+.control-button.stop:hover {
+  background: #d63d42;
+}
+
+.control-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.results-card {
+  text-align: left;
+  background: var(--background-light);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.live-detection-page.dark-mode .results-card {
+  background: #1e1e3a;
+}
+
+.results-card h3 {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.live-detection-page.dark-mode .results-card h3 {
+  color: var(--text-dark);
+}
+
+.detection-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--surface-light);
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--border-light);
+}
+
+.live-detection-page.dark-mode .detection-item {
+  background: var(--surface-dark);
+  border-color: var(--border-dark);
+}
+
+.detection-item:last-child {
+  margin-bottom: 0;
+}
+
+.detection-item .status.detected {
+  color: var(--success-color);
+  font-weight: 600;
+}
+
+.detection-item .status.not-detected {
+  color: var(--error-color);
+  font-weight: 600;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .detection-container {
+    padding: 1.5rem;
+  }
+
+  .detection-container h1 {
+    font-size: 1.75rem;
+  }
+}

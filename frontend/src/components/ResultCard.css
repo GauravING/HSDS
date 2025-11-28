@@ -1,0 +1,66 @@
+/* ResultCard.css */
+
+.result-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  backdrop-filter: blur(10px);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.result-card img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.result-card .results {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.result-card .results span {
+  background: linear-gradient(135deg, #00d4ff, #090979);
+  padding: 8px 16px;
+  border-radius: 30px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.result-card button {
+  background-color: #ff4b2b;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 30px;
+  margin-top: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 14px rgba(255, 75, 43, 0.3);
+}
+
+.result-card button:hover {
+  background-color: #e03e1c;
+  box-shadow: 0 6px 18px rgba(255, 75, 43, 0.5);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

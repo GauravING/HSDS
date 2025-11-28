@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* New Dark Theme Palette */
+  --primary-color: #8098ff; /* A slightly brighter primary for dark bg */
+  --primary-dark: #667eea;
+  --secondary-color: #ff7b7b; /* Brighter secondary */
+  --success-color: #28a745;
+  --background-dark: #0d1117; /* Deep navy, almost black */
+  --text-dark: #e6edf3;
+  --text-secondary-dark: #8b949e;
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
+  --glass-bg-dark: rgba(26, 32, 44, 0.6); /* Darker glass effect */
+
+  /* Aurora & Grid Colors */
+  --grid-color: rgba(255, 255, 255, 0.07);
+  --aurora-color-1: #00f2fe;
+  --aurora-color-2: #8a2be2;
+  --aurora-color-3: #ff69b4;
+  --aurora-color-4: #7b42f6;
+}
+
+.advanced-dashboard {
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- NEW BACKGROUND THEME: Cosmic Grid --- */
+
+/* 1. The Animated Grid Overlay */
+.advanced-dashboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: pan-grid 45s linear infinite;
+  z-index: 2;
+  will-change: background-position;
+}
+
+@keyframes pan-grid {
+  from { background-position: 0 0; }
+  to { background-position: 60px 60px; }
+}
+
+/* 2. The Enhanced Aurora Background */
+.aurora-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Sits below the grid */
+}
+
+.aurora-dot {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px); /* Increased blur for softer gradients */
+  opacity: 0.5;
+  will-change: transform;
+}
+
+.aurora-dot-1 {
+  width: 450px;
+  height: 450px;
+  background: var(--aurora-color-1);
+  top: -150px;
+  left: -200px;
+  animation: aurora-move-1 25s infinite alternate ease-in-out;
+}
+
+.aurora-dot-2 {
+  width: 500px;
+  height: 500px;
+  background: var(--aurora-color-2);
+  bottom: -200px;
+  right: -250px;
+  animation: aurora-move-2 28s infinite alternate ease-in-out;
+}
+
+/* Adding two more dots for complexity */
+.aurora-bg::after, .aurora-bg::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    will-change: transform;
+}
+
+.aurora-bg::before { /* Dot 3 */
+    width: 350px;
+    height: 350px;
+    background: var(--aurora-color-3);
+    top: 50%;
+    left: 40%;
+    animation: aurora-move-3 22s infinite alternate ease-in-out;
+}
+
+.aurora-bg::after { /* Dot 4 */
+    width: 300px;
+    height: 300px;
+    background: var(--aurora-color-4);
+    bottom: 20%;
+    left: 10%;
+    animation: aurora-move-4 30s infinite alternate ease-in-out;
+}
+
+/* More complex keyframes for organic movement */
+@keyframes aurora-move-1 {
+  from { transform: translate(0, 0) rotate(0deg) scale(1); }
+  to { transform: translate(150px, 80px) rotate(45deg) scale(1.1); }
+}
+
+@keyframes aurora-move-2 {
+  from { transform: translate(0, 0) rotate(0deg) scale(1); }
+  to { transform: translate(-120px, -60px) rotate(-60deg) scale(1.2); }
+}
+
+@keyframes aurora-move-3 {
+  from { transform: translate(0, 0) rotate(0deg) scale(1.2); }
+  to { transform: translate(80px, -100px) rotate(70deg) scale(0.9); }
+}
+
+@keyframes aurora-move-4 {
+  from { transform: translate(0, 0) rotate(0deg) scale(1); }
+  to { transform: translate(-100px, 100px) rotate(-90deg) scale(1.1); }
+}
+
+/* --- Adjusted Component Styles for Dark Theme --- */
+
+/* Navigation */
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.dashboard-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+.title-accent {
+  background: linear-gradient(45deg, var(--primary-color), #af42f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  color: var(--text-secondary-dark);
+}
+
+.nav-button.active, .nav-button:hover {
+  background-color: var(--glass-bg-dark);
+  color: var(--text-dark);
+  box-shadow: 0 2px 10px var(--shadow-dark);
+}
+
+/* Main Content */
+.dashboard-main {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+/* Improved Glassmorphism Cards */
+.stat-card, .action-card {
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 var(--shadow-dark);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+}
+
+.stat-card:hover, .action-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 25px rgba(128, 152, 255, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary-dark);
+  margin: 0.75rem 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+}
+
+.stat-value.last-detection {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* Action Cards */
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.action-card {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.action-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+}
+
+.action-card p {
+  font-size: 1rem;
+  color: var(--text-secondary-dark);
+  margin-bottom: 2rem;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.action-button {
+  padding: 0.9rem 1.8rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.action-button.primary {
+  background: linear-gradient(45deg, var(--primary-dark), #8b9ef8);
+}
+.action-button.secondary {
+  background: linear-gradient(45deg, #764ba2, #946dc0);
+}
+
+.action-button:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .action-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-nav {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .dashboard-main {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .action-card p {
+    margin-bottom: 1.5rem;
+  }
+}
