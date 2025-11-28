@@ -298,7 +298,7 @@ const ResponsiveLandingEnhanced = () => {
               <div className="landing-page-image-and-description">
                 <div className="image-for-landing-page">
                   <img
-                    src="/seatbelt.png"
+                    src="/seatbelt.jpg"
                     alt="Seatbelt detection example"
                   />
                 </div>
