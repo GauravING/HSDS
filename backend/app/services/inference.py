@@ -629,6 +629,8 @@ def detect_violations(
                     "vehicle_bbox": vehicle_bbox,
                     "violation": ", ".join(violation_list) if violation_list else None,
                     "violation_types": violation_list,
+                    "violation_type": violation_list[0] if violation_list else None,
+                    "is_violation": bool(violation_list),
                     "number_plate": plate_label,
                     "number_plate_confidence": float(plate_conf) if plate_conf is not None else 0.0,
                     "number_plate_bbox": plate_bbox,
@@ -640,6 +642,7 @@ def detect_violations(
                     "image_path": str(source_path) if source_path else None,
                     "timestamp": timestamp_str,
                     "frame_index": frame_index,
+                    "confidence_score": float(vehicle_conf) if vehicle_conf is not None else None,
                 }
                 if debug:
                     summary["raw_info"] = model_outputs
@@ -699,6 +702,8 @@ def detect_violations(
                     "vehicle_bbox": None,
                     "violation": ", ".join(violation_list) if violation_list else None,
                     "violation_types": violation_list,
+                    "violation_type": violation_list[0] if violation_list else None,
+                    "is_violation": bool(violation_list),
                     "number_plate": plate_label,
                     "number_plate_confidence": plate_conf,
                     "number_plate_text": plate_text,
@@ -713,6 +718,7 @@ def detect_violations(
                     "image_path": str(source_path) if source_path else None,
                     "timestamp": timestamp_str,
                     "frame_index": frame_index,
+                    "confidence_score": float(max(helmet_conf_global, seatbelt_conf_global, anpr_conf_global)),
                 }
                 if debug:
                     summary["raw_info"] = model_outputs
